@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-iz-f)z%b$!w$#9m-h!z@+lfn1w*g8)&bngfra--059g$8g8qo$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["web-production-2d3d.up.railway.app"]
 
 
 # Application definition
@@ -112,6 +112,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+CSRF_TRUSTED_ORIGINS = ['https://web-production-2d3d.up.railway.app']
 
 
 # Static files (CSS, JavaScript, Images)

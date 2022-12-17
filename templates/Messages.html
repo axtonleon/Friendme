@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css\bootstrap.min.css' %}">
+    <script src="{% static 'js\bootstrap.min.js' %}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <title>Home </title>
+
+</head>
+<body>
+    <section>
+        <div class="fixed-top" style="background-color: white;" >
+            <div class="row">
+              <ul class="nav justify-content-center black ">
+                <li class="nav-item">
+                  <a class="nav-link active " style="color: black; font-size: 20px;"  aria-current="page" href="/profile/{{user_profile.user.username}}"><img src="{{user_profile.profileimg.url}}"  class="img-thumbnail" style="height: 30px; width: 30px; margin: 10px;" alt=""></a>
+                  
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active " style="color: black; font-size: 20px; margin-top: 7px;"  aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <h1 class="nav-link" style="color: black; font-size: 30px; margin-top: 9px;">Messages</h1>
+                </li>
+               
+                <li class="nav-item" style="padding-top: 10px; padding-left: 50px; margin-top: 7px;">
+                  <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-secondary" type="submit">Search</button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+    </section>
+    <section>
+        <div class="d-flex flex-wrap justify-content-center" style="margin-top: 120px;">
+            {% for messager in messsagers%}
+            <a href="/text/{{messager.user.username}}" style="text-decoration: none; color: black;">
+                <div class="p-2 bd-highlight"><div class="card mb-3" style="max-width: 400px; min-width:300px">
+                    <div class="row g-0">
+                        <div class="d-flex">
+                      <div class="col-md-4">
+                        <img src="{{messager.profileimg.url}}" style="margin: 10px; max-height: 100px; max-width: 100px;" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">{{messager.user.username}}</h5>
+                          <p class="card-text">last message</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            
+            </a>
+    
+           
+            {%endfor%}
+          </div>
+    </section>
+    
+</body>
+</html>
